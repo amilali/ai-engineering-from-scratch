@@ -47,11 +47,11 @@
 }
 
 [data-theme="dark"] {
-  --bg: #050505;
-  --bg-gradient-start: #000000;
+  --bg: #1a1a1a;
+  --bg-gradient-start: #1a1a1a;
   --bg-gradient-end: #120800;
   --bg-surface: #0f0f0f;
-  --bg-surface-hover: #1a1a1a;
+  --bg-surface-hover: #262626;
   --ink: #e0e0e0;
   --ink-soft: #8a8a8a;
   --ink-mute: #5c5c5c;
