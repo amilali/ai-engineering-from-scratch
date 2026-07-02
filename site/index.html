@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI Engineering from Scratch</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23fafaf5'/><rect x='2' y='2' width='28' height='28' fill='none' stroke='%233553ff' stroke-width='1.2'/><text x='6' y='22' font-size='14' font-family='monospace' fill='%233553ff'>AI</text></svg>">
   <meta name="description" content="AI Engineering from Scratch is a free, open-source curriculum that builds every core AI algorithm by hand — 503 lessons, 20 phases, four languages. The math, the model, the tokenizer, and the agent loop. Once, by hand.">
   <link rel="canonical" href="https://aiengineeringfromscratch.com/">
   <meta property="og:title" content="AI Engineering from Scratch">
@@ -71,6 +70,26 @@
     .manual-masthead {
       padding: 96px 0 24px;
       border-bottom: 1px solid var(--rule-soft);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .manual-masthead::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 20%;
+      width: 60%;
+      height: 100%;
+      background: radial-gradient(circle at center, var(--blueprint-tint-strong) 0%, transparent 70%);
+      z-index: -1;
+      filter: blur(80px);
+      animation: pulseGlow 6s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+    @keyframes pulseGlow {
+      0% { opacity: 0.4; transform: scale(0.9); }
+      100% { opacity: 1; transform: scale(1.1); }
     }
 
     .manual-meta-row {
@@ -98,7 +117,19 @@
       line-height: 0.86;
       letter-spacing: 0.02em;
       text-transform: uppercase;
+      background: linear-gradient(135deg, var(--blueprint) 0%, var(--warn) 50%, var(--blueprint) 100%);
+      background-size: 200% auto;
       color: var(--blueprint);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 6s linear infinite;
+    }
+
+    @keyframes shine {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     .manual-tagline {
@@ -148,12 +179,18 @@
     .masthead-btn--primary {
       border-color: var(--blueprint);
       color: var(--blueprint);
+      box-shadow: 0 0 10px var(--blueprint-tint);
+      transition: all 0.3s ease;
+      position: relative;
     }
 
     .masthead-btn--primary:hover,
     .masthead-btn--primary:focus-visible {
       background: var(--blueprint);
       color: var(--bg);
+      border-color: var(--blueprint);
+      box-shadow: 0 0 15px var(--blueprint), 0 0 30px var(--blueprint-tint-strong);
+      transform: translateY(-2px);
     }
 
     .masthead-btn-count {
@@ -304,8 +341,14 @@
       position: absolute;
       inset: 0;
       width: var(--bar-pct, 0%);
-      background: var(--blueprint);
+      background: linear-gradient(90deg, var(--blueprint) 0%, var(--warn) 50%, var(--blueprint) 100%);
+      background-size: 200% 100%;
       transition: width 0.6s ease;
+      animation: barShine 3s linear infinite;
+    }
+    @keyframes barShine {
+      0% { background-position: 100% 0; }
+      100% { background-position: -100% 0; }
     }
 
     .stat-row-value {
